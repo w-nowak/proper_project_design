@@ -5,28 +5,38 @@ import com.acme.core.domain.model.account.AccountNumber;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.persistence.Embeddable;
+
+import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 
-
+@Embeddable
 public class TargetAccountDetails extends ValueObject {
-    private final AccountNumber accountNumber;
-    private final String recipientName;
-    private final Address address;
+    private AccountNumber accountNumber;
+    private String recipientName;
+    private Address address;
+
+    private TargetAccountDetails() { // only for JPA
+    }
 
     public TargetAccountDetails(AccountNumber accountNumber, String recipientName, Address address) {
-        this.accountNumber = accountNumber;
-        this.recipientName = recipientName;
-        this.address = address;
+        this.accountNumber = requireNonNull(accountNumber, "accountNumber");
+        this.recipientName = requireNonEmpty(recipientName, "recipientName");
+        this.address = requireNonNull(address, "address");
     }
 
     @ToString
     @EqualsAndHashCode
+    @Embeddable
     public static class Address extends ValueObject {
         public static final Address NOT_SPECIFIED = Address.notSpecified();
 
-        private final String addressLine;
-        private final String city;
-        private final String zipCode;
+        private String addressLine;
+        private String city;
+        private String zipCode;
+
+        private Address() { // only for JPA
+        }
 
         public Address(String addressLine, String city, String zipCode) {
             this.addressLine = requireNonNull(addressLine, "addressLine");

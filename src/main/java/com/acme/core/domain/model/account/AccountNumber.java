@@ -4,12 +4,18 @@ import com.acme.core.domain.model.ValueObject;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.persistence.Embeddable;
+
 import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 
 @ToString
 @EqualsAndHashCode
+@Embeddable
 public class AccountNumber extends ValueObject {
-    private final String number;
+    private String number;
+
+    private AccountNumber() { // only for JPA
+    }
 
     public AccountNumber(String accountNumber) {
         this.number = requireCorrectAccountNumber(accountNumber);;

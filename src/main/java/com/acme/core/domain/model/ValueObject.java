@@ -4,6 +4,9 @@ import static java.lang.String.format;
 
 public abstract class ValueObject {
 
+    protected ValueObject() { // only for JPA
+    }
+
     @Override
     public String toString() {
         throw new UnsupportedOperationException(

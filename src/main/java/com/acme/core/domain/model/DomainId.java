@@ -2,11 +2,18 @@ package com.acme.core.domain.model;
 
 import com.acme.util.DomainIdGenerator;
 
+import javax.persistence.MappedSuperclass;
+
 import static com.acme.util.DomainIdGenerator.validateIdFormatWithSymbols;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static com.acme.util.preconditions.Preconditions.requireThat;
 
+@MappedSuperclass
 public abstract class DomainId extends Id<String> {
+
+    protected DomainId() { // only for JPA
+    }
+
     protected DomainId(String domainSymbol, String entitySymbol) {
         super(DomainIdGenerator.generateId(domainSymbol, entitySymbol));
     }
