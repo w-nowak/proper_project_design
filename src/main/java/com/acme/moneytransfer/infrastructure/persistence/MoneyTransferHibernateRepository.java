@@ -19,7 +19,7 @@ public class MoneyTransferHibernateRepository implements MoneyTransferRepository
 	}
 
 	@Override
-	public MoneyTransfer getMoneyTransfer(MoneyTransferId moneyTransferId) {
+	public MoneyTransfer getBy(MoneyTransferId moneyTransferId) {
 		return this.entityManager.find(MoneyTransfer.class, moneyTransferId);
 	}
 
