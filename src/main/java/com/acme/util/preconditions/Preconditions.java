@@ -2,6 +2,7 @@ package com.acme.util.preconditions;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 public class Preconditions {
     private Preconditions() {
@@ -32,6 +33,12 @@ public class Preconditions {
     public static void requireThat(boolean condition, String violationMessage) {
         if (!condition) {
             throw new IllegalArgumentException(violationMessage);
+        }
+    }
+
+    public static void requireThat(boolean condition, Supplier<RuntimeException> conditionFailedExceptionProvider) {
+        if (!condition) {
+            throw conditionFailedExceptionProvider.get();
         }
     }
 

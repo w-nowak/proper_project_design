@@ -8,17 +8,25 @@ import javax.persistence.Embeddable;
 
 import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 
-@ToString
-@EqualsAndHashCode
 @Embeddable
+@ToString
+@EqualsAndHashCode(callSuper = false)
 public class AccountNumber extends ValueObject {
     private String number;
 
     private AccountNumber() { // only for JPA
     }
 
-    public AccountNumber(String accountNumber) {
+    private AccountNumber(String accountNumber) {
         this.number = requireCorrectAccountNumber(accountNumber);;
+    }
+
+    public String asString() {
+    	return number;
+	}
+
+    public static AccountNumber of(String accountNumber) {
+        return new AccountNumber(accountNumber);
     }
 
     private static String requireCorrectAccountNumber(String accountNumber) {

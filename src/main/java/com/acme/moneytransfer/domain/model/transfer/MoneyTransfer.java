@@ -3,6 +3,7 @@ package com.acme.moneytransfer.domain.model.transfer;
 import com.acme.core.domain.model.Entity;
 import com.acme.core.domain.model.account.AccountId;
 import com.acme.core.domain.model.money.Amount;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ import static java.time.LocalDate.now;
 import static javax.persistence.EnumType.STRING;
 
 @javax.persistence.Entity
+@Getter
 public class MoneyTransfer extends Entity<MoneyTransferId> {
     @Embedded
     private AccountId accountId;
