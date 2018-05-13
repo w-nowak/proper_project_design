@@ -12,17 +12,17 @@ import static javax.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Component
 @Transactional(REQUIRES_NEW)
-public class RealizeMoneyTransferUseCase {
+public class CommitMoneyTransferUseCase {
 	private MoneyTransferRepository moneyTransferRepository;
 
-	public RealizeMoneyTransferUseCase(MoneyTransferRepository moneyTransferRepository) {
+	public CommitMoneyTransferUseCase(MoneyTransferRepository moneyTransferRepository) {
 		this.moneyTransferRepository = requireNonNull(moneyTransferRepository, "moneyTransferRepository");
 	}
 
-	public void realizeTransfer(String moneyTransferId) {
+	public void commitTransfer(String moneyTransferId) {
 		MoneyTransferId transferId = MoneyTransferId.of(moneyTransferId);
 
 		MoneyTransfer moneyTransfer = this.moneyTransferRepository.getBy(transferId);
-		moneyTransfer.realize();
+		moneyTransfer.commit();
 	}
 }

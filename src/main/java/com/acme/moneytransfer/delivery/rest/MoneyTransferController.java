@@ -3,7 +3,7 @@ package com.acme.moneytransfer.delivery.rest;
 import com.acme.moneytransfer.application.transfer.command.CancelMoneyTransferUseCase;
 import com.acme.moneytransfer.application.transfer.command.CreateMoneyTransferUseCase;
 import com.acme.moneytransfer.application.transfer.command.MoneyTransferCommand;
-import com.acme.moneytransfer.application.transfer.command.RealizeMoneyTransferUseCase;
+import com.acme.moneytransfer.application.transfer.command.CommitMoneyTransferUseCase;
 import com.acme.moneytransfer.application.transfer.query.MoneyTransferListUseCase;
 import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ class MoneyTransferController {
     private static final String ACCOUNT_ID = "CD-A-171017-15425452";
 
     @Autowired private CreateMoneyTransferUseCase createMoneyTransferUseCase;
-    @Autowired private RealizeMoneyTransferUseCase realizeMoneyTransferUseCase;
+    @Autowired private CommitMoneyTransferUseCase commitMoneyTransferUseCase;
     @Autowired private CancelMoneyTransferUseCase cancelMoneyTransferUseCase;
     @Autowired  private MoneyTransferListUseCase moneyTransferListUseCase;
 
@@ -35,9 +35,9 @@ class MoneyTransferController {
         return "success " + newId;
     }
 
-    @PutMapping("/{moneyTransferId}/realize")
-    public void realize(@PathVariable String moneyTransferId) {
-        this.realizeMoneyTransferUseCase.realizeTransfer(moneyTransferId);
+    @PutMapping("/{moneyTransferId}/commit")
+    public void commit(@PathVariable String moneyTransferId) {
+        this.commitMoneyTransferUseCase.commitTransfer(moneyTransferId);
     }
 
     @PutMapping("/{moneyTransferId}/cancel")

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 import static com.acme.moneytransfer.domain.model.transfer.Status.CANCELED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.CREATED;
-import static com.acme.moneytransfer.domain.model.transfer.Status.ORDERED;
+import static com.acme.moneytransfer.domain.model.transfer.Status.COMMITTED;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static com.acme.util.preconditions.Preconditions.requireStateThat;
 import static java.time.LocalDate.now;
@@ -52,13 +52,13 @@ public class MoneyTransfer extends Entity<MoneyTransferId> {
         this.status = CREATED;
     }
 
-    public void realize(){
-        requireStateThat(this.status == CREATED, "A transfer cannot be realized because it's already been ordered");
-        this.changeStatusTo(ORDERED);
+    public void commit(){
+        requireStateThat(this.status == CREATED, "A transfer has already been committed");
+        this.changeStatusTo(COMMITTED);
     }
 
     public void cancel(){
-        requireStateThat(this.status == CREATED, "A transfer cannot be cancelled because it's already been ordered");
+        requireStateThat(this.status == CREATED, "A transfer cannot be cancelled because it's already been committed");
         this.changeStatusTo(CANCELED);
     }
 
