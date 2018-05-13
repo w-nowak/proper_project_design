@@ -55,7 +55,7 @@ public class DomainIdGenerator {
     }
 
     private static String getFirstSegment(String uuid) {
-        return uuid.substring(uuid.indexOf(SEGMENT_SEPARATOR));
+        return uuid.substring(0, uuid.indexOf(SEGMENT_SEPARATOR));
     }
 
     private static String getSerializedCurrentDate() {
