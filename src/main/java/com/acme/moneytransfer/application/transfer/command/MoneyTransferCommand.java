@@ -1,6 +1,6 @@
 package com.acme.moneytransfer.application.transfer.command;
 
-import lombok.Getter;
+import lombok.Value;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static java.util.Optional.ofNullable;
 
-@Getter
+@Value
 public class MoneyTransferCommand {
     private final String accountId;
     private final String targetAccountNmber;
@@ -34,7 +34,7 @@ public class MoneyTransferCommand {
         return new MoneyTransferCommandBuilder(accountId, targetAccountNmber, recipientName, amount);
     }
 
-    @Getter
+    @Value
     public static class Address {
         private final String street;
         private final String city;

@@ -4,13 +4,11 @@ import com.acme.core.domain.model.ValueObject;
 import com.acme.core.domain.model.account.AccountId;
 import com.acme.core.domain.model.money.Amount;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Value;
 
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 
-@Getter
-@ToString
+@Value
 @EqualsAndHashCode(callSuper = false)
 public class AccountInfo extends ValueObject {
     private final AccountId accountId;

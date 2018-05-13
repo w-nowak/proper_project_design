@@ -11,10 +11,10 @@ import javax.persistence.Embeddable;
 import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 
-@Embeddable
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = false)
+@Embeddable
 public class TargetAccountDetails extends ValueObject {
     private AccountNumber accountNumber;
     private String recipientName;
@@ -29,8 +29,9 @@ public class TargetAccountDetails extends ValueObject {
         this.address = requireNonNull(address, "address");
     }
 
+    @Getter
     @ToString
-    @EqualsAndHashCode
+    @EqualsAndHashCode(callSuper = false)
     @Embeddable
     public static class Address extends ValueObject {
         public static final Address NOT_SPECIFIED = Address.notSpecified();
