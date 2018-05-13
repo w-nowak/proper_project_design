@@ -1,4 +1,4 @@
-package com.acme.moneytransfer.infrastructure.persistence;
+package com.acme.moneytransfer.infrastructure.persistence.repository;
 
 import com.acme.moneytransfer.domain.model.transfer.MoneyTransfer;
 import com.acme.moneytransfer.domain.model.transfer.MoneyTransferId;
