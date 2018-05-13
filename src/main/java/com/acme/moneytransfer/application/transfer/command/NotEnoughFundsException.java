@@ -1,4 +1,4 @@
-package com.acme.moneytransfer.application.transfer;
+package com.acme.moneytransfer.application.transfer.command;
 
 import com.acme.core.domain.model.money.Amount;
 import lombok.Getter;

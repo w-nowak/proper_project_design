@@ -1,7 +1,7 @@
 package com.acme.moneytransfer.delivery.rest;
 
-import com.acme.moneytransfer.application.transfer.CreateMoneyTransferUseCase;
-import com.acme.moneytransfer.application.transfer.MoneyTransferCommand;
+import com.acme.moneytransfer.application.transfer.command.CreateMoneyTransferUseCase;
+import com.acme.moneytransfer.application.transfer.command.MoneyTransferCommand;
 import com.acme.moneytransfer.application.transfer.query.MoneyTransferListUseCase;
 import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.beans.factory.annotation.Autowired;
