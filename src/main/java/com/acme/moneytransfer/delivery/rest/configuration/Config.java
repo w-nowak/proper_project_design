@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.acme")
 @EnableJpaRepositories("com.acme.moneytransfer.infrastructure")
 @EntityScan("com.acme.moneytransfer.domain.model")
-public class Config {
+class Config {
 }

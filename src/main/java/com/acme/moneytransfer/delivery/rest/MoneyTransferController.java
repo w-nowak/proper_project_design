@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("money-transfers")
-public class MoneyTransferController {
+class MoneyTransferController {
     private static final String ACCOUNT_ID = "CD-A-171017-15425452";
     @Autowired
     private CreateMoneyTransferUseCase createMoneyTransferUseCase;
