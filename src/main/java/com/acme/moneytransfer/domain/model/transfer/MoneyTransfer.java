@@ -7,13 +7,14 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static com.acme.moneytransfer.domain.model.transfer.Status.CANCELED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.CREATED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.COMMITTED;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static com.acme.util.preconditions.Preconditions.requireStateThat;
-import static java.time.LocalDate.now;
+import static java.time.LocalDateTime.now;
 import static javax.persistence.EnumType.STRING;
 
 @javax.persistence.Entity
@@ -29,7 +30,7 @@ public class MoneyTransfer extends Entity<MoneyTransferId> {
     private LocalDate transferDate;
     @Enumerated(STRING)
     private Status status;
-    private LocalDate lastStatusChangeDate;
+    private LocalDateTime lastStatusChangeDate;
     @Version
     private int version;
 
