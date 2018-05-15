@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.util.time.ApplicationTime.dateNow;
 import static java.util.Optional.ofNullable;
 
 @Value
@@ -62,7 +63,7 @@ public class MoneyTransferCommand {
             this.recipientName = recipientName;
             this.amount = amount;
             this.description = "";
-            this.date = LocalDate.now();
+            this.date = dateNow();
         }
 
         public MoneyTransferCommandBuilder withAddress(String street, String city, String zipCode) {

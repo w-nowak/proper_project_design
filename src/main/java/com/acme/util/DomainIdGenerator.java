@@ -1,10 +1,10 @@
 package com.acme.util;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static com.acme.util.preconditions.Preconditions.requireThat;
+import static com.acme.util.time.ApplicationTime.dateNow;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class DomainIdGenerator {
@@ -59,6 +59,6 @@ public class DomainIdGenerator {
     }
 
     private static String getSerializedCurrentDate() {
-        return LocalDate.now().format(ofPattern("yyMMdd"));
+        return dateNow().format(ofPattern("yyMMdd"));
     }
 }

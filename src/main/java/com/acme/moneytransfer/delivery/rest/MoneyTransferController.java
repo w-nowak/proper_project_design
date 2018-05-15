@@ -9,7 +9,7 @@ import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import static com.acme.util.time.ApplicationTime.dateNow;
 
 @RestController
 @RequestMapping("money-transfers")
@@ -26,7 +26,7 @@ class MoneyTransferController {
         MoneyTransferCommand moneyTransferCommand =
             MoneyTransferCommand.builder(ACCOUNT_ID, "465465464654", "My name", 100)
             .withDescription("some description of transfer")
-            .withDate(LocalDate.now())
+            .withDate(dateNow())
             .withAddress("some street", "Wrocław", "53-212")
             .build();
 

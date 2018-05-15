@@ -14,7 +14,7 @@ import static com.acme.moneytransfer.domain.model.transfer.Status.CREATED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.COMMITTED;
 import static com.acme.util.preconditions.Preconditions.requireNonNull;
 import static com.acme.util.preconditions.Preconditions.requireStateThat;
-import static java.time.LocalDateTime.now;
+import static com.acme.util.time.ApplicationTime.dateTimeNow;
 import static javax.persistence.EnumType.STRING;
 
 @javax.persistence.Entity
@@ -65,6 +65,6 @@ public class MoneyTransfer extends Entity<MoneyTransferId> {
 
     private void changeStatusTo(Status newStatus) {
         this.status = newStatus;
-        this.lastStatusChangeDate = now();
+        this.lastStatusChangeDate = dateTimeNow();
     }
 }
