@@ -6,7 +6,7 @@ import com.acme.core.domain.model.money.Amount;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
 
 @Value
 @EqualsAndHashCode(callSuper = false)

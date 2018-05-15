@@ -9,7 +9,7 @@ import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import static com.acme.util.time.ApplicationTime.dateNow;
+import static com.acme.core.util.time.ApplicationTime.dateNow;
 
 @RestController
 @RequestMapping("money-transfers")

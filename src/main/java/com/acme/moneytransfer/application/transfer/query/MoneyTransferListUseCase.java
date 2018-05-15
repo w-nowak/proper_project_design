@@ -6,7 +6,7 @@ import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.stereotype.Component;
 
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
 
 @Component
 public class MoneyTransferListUseCase {

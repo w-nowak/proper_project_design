@@ -1,10 +1,10 @@
-package com.acme.util;
+package com.acme.core.util;
 
 import java.util.UUID;
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
-import static com.acme.util.preconditions.Preconditions.requireThat;
-import static com.acme.util.time.ApplicationTime.dateNow;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireThat;
+import static com.acme.core.util.time.ApplicationTime.dateNow;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class DomainIdGenerator {

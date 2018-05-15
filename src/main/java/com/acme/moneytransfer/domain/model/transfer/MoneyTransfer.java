@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 import static com.acme.moneytransfer.domain.model.transfer.Status.CANCELED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.CREATED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.COMMITTED;
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
-import static com.acme.util.preconditions.Preconditions.requireStateThat;
-import static com.acme.util.time.ApplicationTime.dateTimeNow;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireStateThat;
+import static com.acme.core.util.time.ApplicationTime.dateTimeNow;
 import static javax.persistence.EnumType.STRING;
 
 @javax.persistence.Entity

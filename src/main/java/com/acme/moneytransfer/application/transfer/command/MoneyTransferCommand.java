@@ -5,9 +5,9 @@ import lombok.Value;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
-import static com.acme.util.time.ApplicationTime.dateNow;
+import static com.acme.core.util.preconditions.Preconditions.requireNonEmpty;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.time.ApplicationTime.dateNow;
 import static java.util.Optional.ofNullable;
 
 @Value

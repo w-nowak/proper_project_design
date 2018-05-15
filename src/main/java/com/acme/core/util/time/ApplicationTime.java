@@ -1,4 +1,4 @@
-package com.acme.util.time;
+package com.acme.core.util.time;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

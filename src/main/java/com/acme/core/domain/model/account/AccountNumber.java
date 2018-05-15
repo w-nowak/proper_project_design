@@ -6,7 +6,7 @@ import lombok.ToString;
 
 import javax.persistence.Embeddable;
 
-import static com.acme.util.preconditions.Preconditions.requireNonEmpty;
+import static com.acme.core.util.preconditions.Preconditions.requireNonEmpty;
 
 @Embeddable
 @ToString

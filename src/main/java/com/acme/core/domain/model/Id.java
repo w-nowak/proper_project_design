@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 
 import java.io.Serializable;
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
 
 @ToString
 @EqualsAndHashCode(callSuper = false)

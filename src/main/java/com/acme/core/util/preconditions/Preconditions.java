@@ -1,4 +1,4 @@
-package com.acme.util.preconditions;
+package com.acme.core.util.preconditions;
 
 import java.util.Collection;
 import java.util.Objects;

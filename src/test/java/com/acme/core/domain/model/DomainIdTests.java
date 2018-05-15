@@ -4,9 +4,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.acme.util.time.ApplicationClock.getFixedClockFor;
-import static com.acme.util.time.ApplicationClock.getSystemDefaultClock;
-import static com.acme.util.time.ApplicationClock.setCurrentClock;
+import static com.acme.core.util.time.ApplicationClock.getFixedClockFor;
+import static com.acme.core.util.time.ApplicationClock.getSystemDefaultClock;
+import static com.acme.core.util.time.ApplicationClock.setCurrentClock;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 

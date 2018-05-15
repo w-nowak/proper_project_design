@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 
 import static com.acme.core.domain.model.money.Currency.ANY;
 import static com.acme.core.domain.model.money.Currency.PLN;
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
-import static com.acme.util.preconditions.Preconditions.requireThat;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireThat;
 import static java.math.BigDecimal.valueOf;
 import static javax.persistence.EnumType.STRING;
 

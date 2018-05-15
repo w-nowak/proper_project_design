@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
 import static javax.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Component

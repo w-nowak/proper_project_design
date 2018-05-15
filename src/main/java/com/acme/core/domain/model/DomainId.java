@@ -1,12 +1,12 @@
 package com.acme.core.domain.model;
 
-import com.acme.util.DomainIdGenerator;
+import com.acme.core.util.DomainIdGenerator;
 
 import javax.persistence.MappedSuperclass;
 
-import static com.acme.util.DomainIdGenerator.validateIdFormatWithSymbols;
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
-import static com.acme.util.preconditions.Preconditions.requireThat;
+import static com.acme.core.util.DomainIdGenerator.validateIdFormatWithSymbols;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireThat;
 
 @MappedSuperclass
 public abstract class DomainId extends Id<String> {

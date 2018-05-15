@@ -5,7 +5,7 @@ import com.acme.core.domain.model.money.Currency;
 import com.acme.moneytransfer.domain.model.transfer.CurrencyExchangeRateProvider;
 import org.springframework.stereotype.Service;
 
-import static com.acme.util.preconditions.Preconditions.requireNonNull;
+import static com.acme.core.util.preconditions.Preconditions.requireNonNull;
 
 @Service
 public class AmountCurrencyConversionService {
