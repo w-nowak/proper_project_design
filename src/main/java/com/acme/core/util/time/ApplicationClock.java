@@ -22,6 +22,16 @@ public class ApplicationClock {
 		);
 	}
 
+	public static Clock getFixedClockFor(int year, int month, int dayOfMonth, int hour, int minute, int second) {
+		return Clock.fixed(
+			ZonedDateTime.of(
+				LocalDateTime.of(year, month, dayOfMonth, hour, minute, second),
+				ZoneId.systemDefault()
+			).toInstant(),
+			ZoneId.systemDefault()
+		);
+	}
+
 	public static Clock getCurrentClock() {
 		return currentClock;
 	}
