@@ -7,6 +7,8 @@ import com.acme.moneytransfer.application.transfer.command.CommitMoneyTransferUs
 import com.acme.moneytransfer.application.transfer.query.MoneyTransferListUseCase;
 import com.acme.moneytransfer.projection.view.BriefMoneyTransferDataView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import static com.acme.core.util.time.ApplicationTime.dateNow;
@@ -46,8 +48,13 @@ class MoneyTransferController {
     }
 
     @GetMapping
-    public Iterable<BriefMoneyTransferDataView> testget() {
+    public Iterable<BriefMoneyTransferDataView> getAllBriefMoneyTranfers() {
         return this.moneyTransferListUseCase.getMoneyTransfersBy(ACCOUNT_ID);
+    }
+
+    @GetMapping("/paged")
+    public Page<BriefMoneyTransferDataView> getPagedBriefMoneyTranfers() {
+        return this.moneyTransferListUseCase.getMoneyTransfersBy(ACCOUNT_ID, PageRequest.of(0 ,3));
     }
 
 }
