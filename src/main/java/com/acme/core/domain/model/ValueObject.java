@@ -2,7 +2,7 @@ package com.acme.core.domain.model;
 
 import static java.lang.String.format;
 
-public abstract class ValueObject {
+public abstract class ValueObject implements Equalable<ValueObject> {
 
     protected ValueObject() { // only for JPA
     }
@@ -26,5 +26,10 @@ public abstract class ValueObject {
         throw new UnsupportedOperationException(
                 format("equals() method needs to be implemented in a concrete class '%s'", this.getClass().getName())
         );
+    }
+
+    @Override
+    public boolean isEqualTo(ValueObject valueObject) {
+        return this.equals(valueObject);
     }
 }

@@ -8,6 +8,7 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import static com.acme.moneytransfer.domain.model.transfer.Status.CANCELED;
 import static com.acme.moneytransfer.domain.model.transfer.Status.CREATED;
@@ -19,7 +20,7 @@ import static javax.persistence.EnumType.STRING;
 
 @javax.persistence.Entity
 @Getter
-public class MoneyTransfer extends Entity<MoneyTransferId> {
+public class MoneyTransfer extends Entity<MoneyTransferId, MoneyTransfer> {
     @Embedded
     private AccountId accountId;
     @Embedded
@@ -66,5 +67,30 @@ public class MoneyTransfer extends Entity<MoneyTransferId> {
     private void changeStatusTo(Status newStatus) {
         this.status = newStatus;
         this.lastStatusChangeDate = dateTimeNow();
+    }
+
+    @Override
+    public boolean isEqualTo(MoneyTransfer moneyTransfer) {
+        return version == moneyTransfer.version &&
+            Objects.equals(accountId, moneyTransfer.accountId) &&
+            Objects.equals(targetAccountDetails, moneyTransfer.targetAccountDetails) &&
+            Objects.equals(amount, moneyTransfer.amount) &&
+            Objects.equals(transferDescription, moneyTransfer.transferDescription) &&
+            Objects.equals(transferDate, moneyTransfer.transferDate) &&
+            status == moneyTransfer.status &&
+            Objects.equals(lastStatusChangeDate, moneyTransfer.lastStatusChangeDate);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MoneyTransfer that = (MoneyTransfer) o;
+        return Objects.equals(accountId, that.accountId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(accountId);
     }
 }
